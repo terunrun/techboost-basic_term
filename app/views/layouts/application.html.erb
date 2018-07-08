@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pictgram</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- unit17 application.scss、application.jsを読み込み -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!-- unit19 flashメッセージ表示エリアを追加 -->
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+
+    <!-- unit17 yeildメソッドで他のview(html.erb)を読み込み -->
+    <%= yield %>
+
+    <!-- unit19 flashメッセージが5秒で消えるJQueryを追加 -->
+    $(function(){
+      $(".alert").fadeOut(5000);
+    });
+
+  </body>
+</html>
