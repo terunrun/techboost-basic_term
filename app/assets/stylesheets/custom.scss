@@ -54,14 +54,18 @@ h1, h2 {
 }
 
 .users-new-wrapper {
-  /* unit18 vw/vhはどういう意味？★ */
+  /* unit18 viewport widthを指定 */
   width: 100vw;
+  /* unit18 viewport heightを指定 */
   height: 100vh;
   background-image: url('bg-top.png');
-  /* unit18 以下のbackgroundプロパティはどういう意味？★ */
-  background-position: center;
+  /* unit18 背景画像の位置：中央 */
+  background-position: center center;
+  /* unit18 背景画像の繰り返し：なし */
   background-repeat: no-repeat;
+  /* unit18 背景画像の固定：固定 */
   background-attachment: fixed;
+  /* unit18 背景画像のサイズ：画面全体 */
   background-size: cover;
   background-color: #464646;
 
@@ -72,6 +76,27 @@ h1, h2 {
       margin-bottom: 20px;
     }
 
+  }
+
+}
+
+/* unit20 Navigationバー用css追加 */
+.navbar-transparent {
+  margin-bottom: 0px;
+  background-color: rgba(0,0,0,0.5);
+
+  a {
+    /* unit20 */
+    color: #fffff !important;
+  }
+
+  .navbar-brand {
+    padding: 0px;
+    margin-top: 15px;
+  }
+
+  img {
+    height: 40px;
   }
 
 }

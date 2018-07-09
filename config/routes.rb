@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  # unit20 sessionsコントローラ新規作成に伴い自動で追加される
+  get 'sessions/new'
+  # unit20 以下を追加
+  get    '/login',  to: 'sessions#new'
+  post   '/login',  to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
   # unit17 usersコントローラ新規作成に伴い自動で追加される
   get 'users/new'
   # unit18 resoucesを定義することで、userの各名前付きルートを使用可能になる

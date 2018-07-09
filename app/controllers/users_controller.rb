@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     # userモデルの対応するカラムにセットしてuserモデルをnew
     # unit19 user_paramsメソッドで記載
     # @user = User.new( name: params[:user][:name], email: params[:user][:email] )
-    @user = USer.new( user_params )
+    @user = User.new( user_params )
     if @user.save
       # unit18 DBへの保存に成功した場合
       # unit18 ルート（ホーム画面）を表示
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
     # unit19 paramsで送信を許可する項目を設定
     def user_params
-      params.requier(:user).permit( :name, :email, :password, :password_confirmation )
+      params.require(:user).permit( :name, :email, :password, :password_confirmation )
     end
 
 end
