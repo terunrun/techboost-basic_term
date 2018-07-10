@@ -75,3 +75,6 @@ gem 'jquery-rails'
 
 # unit19 暗号化gemを追加
 gem 'bcrypt'
+
+# unit21 画像投稿gemを追加
+gem 'carrierwave'

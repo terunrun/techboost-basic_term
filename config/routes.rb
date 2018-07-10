@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'favorites/index'
+  # unit21 topicsコントローラ新規作成に伴い自動で追加される
+  get 'topics/new'
+  # unit21 resoucesを定義することで、topicの各名前付きルートを使用可能になる
+  # GET    /topics        index   topics_path           すべてのtopicトピックを一覧するページ
+  # GET    /topics/1      show    topic_path(topic)      特定のtopicトピックを表示するページ
+  # GET    /topics/new    new     new_topic_path        topicトピックを新規作成するページ (トピック登録)
+  # POST   /topics        create  topics_path           topicトピックを作成するアクション
+  # GET    /topics/1/edit edit    edit_topic_path(topic) id=1のtopicトピックを編集するページ
+  # PATCH	 /topics/1      update  topic_path(topic)      topicトピックを更新するアクション
+  # DELETE /topics/1      destroy topic_path(topic)      topicトピックを削除するアクション
+  resources :topics
+
   # unit20 sessionsコントローラ新規作成に伴い自動で追加される
   get 'sessions/new'
   # unit20 以下を追加
@@ -29,7 +42,7 @@ Rails.application.routes.draw do
   # DELETE | users/:id      | users#delete |
   resources :users
 
-  # rootメソッドのときとgetメソッドのときで記載方法が違うのはなぜ？★
+  # rootメソッドの場合はcontroller#action、それ以外はurlを指定
   get 'pages/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

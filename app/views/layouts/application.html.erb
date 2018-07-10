@@ -25,7 +25,8 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <!-- unit21 画像投稿画面へのリンクに修正 -->
+              <%= link_to new_topic_path do %>
                 <%= image_tag "icons/camera.png" %>
               <% end %>
             </li>
@@ -60,11 +61,11 @@
     <%= yield %>
 
     <!-- unit19 flashメッセージが5秒で消えるJQueryを追加 -->
-    <!-- うまく動かないためコメントアウト★
+    <script>
     $(function(){
       $(".alert").fadeOut(5000);
     });
-    -->
+    </script>
 
   </body>
 </html>

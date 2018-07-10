@@ -10,4 +10,10 @@ class User < ApplicationRecord
   # authenticateメソッドが使用できる
   has_secure_password
 
+  # unit21 複数のTopicモデルを持つ
+  has_many :topics
+
+  # unit22 複数のFavoriteモデルを持つ
+  has_many :favorites
+
 end
