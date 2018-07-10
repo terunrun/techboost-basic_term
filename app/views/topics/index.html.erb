@@ -6,19 +6,25 @@
       <div class="row">
         <div class="col-md-offset-3 col-md-6">
           <div class="topic-index-single">
-              <h2 class="topic-author">
-                <%= topic.user.name %>
-              </h2>
-              <!-- unit21 imageタグで画像を出力 -->
-              <%= image_tag topic.image.url %>
-              <%= image_tag "icons/heart-black.png", class:"topic-index-icon" %>
-              <%= image_tag "icons/comment.png", class:"topic-index-icon" %>
-              <p class="topic-text">
-                <%= topic.description %>
-              </div>
+            <h2 class="topic-author">
+              <%= topic.user.name %>
+            </h2>
+            <!-- unit21 imageタグで画像を出力 -->
+            <%= image_tag topic.image.url %>
+            <!-- unit21 topic_idというパラメータにtopicのidをセットしてfavorites_pathへポストリクエスト送信 -->
+            <% if !topic.favorite_users.include?(current_user) %>
+            <!-- unit22 投稿のお気に入りの中に現在ログインしているユーザーが含まれる場合 -->
+              <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+               <%= image_tag "icons/heart-black.png", class:"topic-index-icon" %>
+              <% end %>
+            <% end %>
+            <%= image_tag "icons/comment.png", class:"topic-index-icon" %>
+            <p class="topic-text">
+             <%= topic.description %>
+            </p>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

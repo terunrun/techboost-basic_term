@@ -15,5 +15,8 @@ class User < ApplicationRecord
 
   # unit22 複数のFavoriteモデルを持つ
   has_many :favorites
+  # unit22 favoriteモデルとの関連付けを追加
+  # unit22 favoriteを通してtopicを取得しfavorite_topicsとする
+  has_many :favorite_topics, through: :favorites, source: "topic"
 
 end

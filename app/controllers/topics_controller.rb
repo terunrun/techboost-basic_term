@@ -23,7 +23,10 @@ class TopicsController < ApplicationController
   # unit21 追加
   def index
     # unit21 すべてのpostを取得
-    @topics = Topic.all
+    # unit22 view側でeachの回数分、全ユーザーからお気に入り登録しているユーザーを探す子になるため、
+    #n unit22 includeメソッドを使用するように修正
+    # @topics = Topic.all
+    @topics = Topic.all.includes(:favorite_users)
   end
 
   private

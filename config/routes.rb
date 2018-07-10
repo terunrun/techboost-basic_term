@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+  # unit22 favoritesコントローラ新規作成に伴い自動で追加される
   get 'favorites/index'
+  # unit22 以下を追加
+  post '/favorites', to: 'favorites#create'
+
   # unit21 topicsコントローラ新規作成に伴い自動で追加される
   get 'topics/new'
   # unit21 resoucesを定義することで、topicの各名前付きルートを使用可能になる

@@ -11,6 +11,8 @@ class Topic < ApplicationRecord
 
   # unit21 複数のFavoriteモデルを持つ
   has_many :favorites
+  # unit22 favoriteを通してuserを取得しfavorite_usersとする
+  has_many :favorite_users, through: :favorites, source: "user"
 
   # unit21 carrierwave用設定　画像をアップロードするModelに追記する★
   mount_uploader :image, ImageUploader
