@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   # unit21 複数のTopicモデルを持つ
   has_many :topics
+  # unit22 確認テスト 複数のcommentモデルを持つ
+  has_many :comments
 
   # unit22 複数のFavoriteモデルを持つ
   has_many :favorites

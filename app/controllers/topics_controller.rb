@@ -9,10 +9,12 @@ class TopicsController < ApplicationController
   # unit21 追加
   def create
     # unit21 ログイン中のユーザーに紐づくtopicインスタンスを作成
+    # binding.pry
     @topic = current_user.topics.new(topic_params)
     if @topic.save
       # unit21 DBへの保存に成功した場合
-      redirect_to root_path, success: "投稿に成功しました"
+      # unit22 確認テスト 成功時は投稿一覧へ遷移させる
+      redirect_to topics_path, success: "投稿に成功しました"
     else
       # unit21 DBへの保存に成功しなかった場合
       flash.now[:danger] = "投稿に失敗しました"

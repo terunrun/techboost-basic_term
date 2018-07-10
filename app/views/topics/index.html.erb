@@ -18,10 +18,21 @@
                <%= image_tag "icons/heart-black.png", class:"topic-index-icon" %>
               <% end %>
             <% end %>
-            <%= image_tag "icons/comment.png", class:"topic-index-icon" %>
+            <!-- unit22 確認テスト コメント投稿画面へのリンクを追加 -->
+            <!-- unit22 確認テスト params[:topic_id]に、コメント対象のtopicのidをセット -->
+            <%= link_to comments_new_path(topic_id: topic.id) do %>
+              <%= image_tag "icons/comment.png", class:"topic-index-icon" %>
+            <% end %>
             <p class="topic-text">
-             <%= topic.description %>
+              <%= topic.description %>
             </p>
+            <h3 class="topic-comment">コメント</h3>
+            <!-- unit22 確認テスト topicに紐づくコメントをすべて表示 -->
+            <% topic.comments.each do |comment| %>
+              <p class="topic-text">
+                <%= comment.comment %>
+              </p>
+            <% end %>
           </div>
         </div>
       </div>

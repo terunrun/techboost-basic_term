@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # unit22 確認テスト Commentsコントローラのルーティング
+  get 'comments/new'
+  post '/comments', to: 'comments#create'
+
   # unit22 favoritesコントローラ新規作成に伴い自動で追加される
   get 'favorites/index'
   # unit22 以下を追加

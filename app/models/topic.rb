@@ -17,4 +17,7 @@ class Topic < ApplicationRecord
   # unit21 carrierwave用設定　画像をアップロードするModelに追記する★
   mount_uploader :image, ImageUploader
 
+  # unit22 確認テスト 複数のcommentモデルを持つ
+  has_many :comments
+
 end
